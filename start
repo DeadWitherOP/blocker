@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nived's Page</title>
+  <style>
+    body {
+      background: url('https://cdn.dribbble.com/users/81337/screenshots/2702541/media/5c2992971182b2d6c0c3122ce653dd11.gif') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .side_button {
+      width: 40px;
+      height: 40px;
+      background-color: black;
+      border: 3px solid #292929;
+      border-radius: 7px;
+      margin-bottom: 10px;
+      overflow: hidden; /* Ensure the image stays within the button */
+    }
+
+    .side_button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Maintain aspect ratio and cover the entire button */
+    }
+
+    .bottom_right_text {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: white;
+      font-size: 48px;
+      font-family: 'Raleway', sans-serif;
+      direction: rtl;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body onclick="toggleFullScreen()">
+  <div class="side_button" id="buttonOne" onclick="redirectTo('https://classroom.google.com')">
+    <img src="https://icons.iconarchive.com/icons/martz90/circle/512/books-icon.png" alt="Button One Image">
+  </div>
+  <div class="side_button" id="buttonTwo" onclick="redirectTo('https://docs.google.com')">
+    <img src="https://imagimotive.com/wp-content/uploads/2017/10/red-pencil-icon.png" alt="Button Two Image">
+  </div>
+  <div class="side_button" id="buttonThree" onclick="redirectTo('https://slides.google.com')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Samsung_Notes_icon.png" alt="Button Three Image">
+  </div>
+  <div class="side_button" id="buttonFour" onclick="redirectTo('https://scratch.mit.edu')">
+    <img src="https://www.freeiconspng.com/thumbs/scratches-png/red-scratches-png-9.png" alt="Button Four Image">
+  </div>
+  <div class="side_button" id="buttonFive" onclick="redirectTo('https://turbowarp.org')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/1028px-Tesla_T_symbol.svg.png" alt="Button Five Image">
+  </div>
+
+  <div class="bottom_right_text" id="greetingText">
+    <i>What will you do today<br>Nived</i>
+  </div>
+
+  <script>
+    // List of greetings
+    const greetingsList = [
+      "What will you do today",
+      "How are you",
+      "Greetings",
+      "Any plans for today",
+      "Welcome back",
+      "How are you feeling",
+      "Good day to you",
+      "What's on your mind",
+      "Enjoy your day",
+      "Nice to see you"
+    ];
+
+    // Retrieve the stored index from localStorage, default to 1 if not present
+    let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
+
+    // Display the greeting and update the index in localStorage
+    document.getElementById('greetingText').innerHTML = `<i>${greetingsList[currentIndex - 1]}<br>Nived</i>`;
+    localStorage.setItem('greetingIndex', (currentIndex % greetingsList.length) + 1);
+
+    // Toggle fullscreen mode
+    function toggleFullScreen() {
+      const elem = document.documentElement;
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
