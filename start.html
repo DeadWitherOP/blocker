@@ -84,6 +84,7 @@
 
     // Retrieve the stored index from localStorage, default to 1 if not present
     function redirectTo(url) {
+      document.exitFullscreen();
       window.location.href = url;
     };
 let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
