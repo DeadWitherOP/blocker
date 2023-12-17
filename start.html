@@ -84,10 +84,10 @@
 
     // Retrieve the stored index from localStorage, default to 1 if not present
     function redirectTo(url) {
-      document.exitFullscreen();
       window.location.href = url;
     };
-let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
+	  body. style.backgroundImage = "url('" + localStorage.getItem('url')+"')";
+	  let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
     
     // Display the greeting and update the index in localStorage
     document.getElementById('greetingText').innerHTML = `<i>${greetingsList[currentIndex - 1]}<br>Nived</i>`;
