@@ -83,14 +83,26 @@
     ];
 
     // Retrieve the stored index from localStorage, default to 1 if not present
-    let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
-
+    function redirectTo(url) {
+      window.location.href = url;
+    };
+	  let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
+    
     // Display the greeting and update the index in localStorage
     document.getElementById('greetingText').innerHTML = `<i>${greetingsList[currentIndex - 1]}<br>Nived</i>`;
     localStorage.setItem('greetingIndex', (currentIndex % greetingsList.length) + 1);
 
     // Toggle fullscreen mode
-  
+    function toggleFullScreen() {
+      const elem = document.documentElement;
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
   </script>
 </body>
 </html>
