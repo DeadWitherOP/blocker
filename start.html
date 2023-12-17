@@ -86,7 +86,7 @@
     function redirectTo(url) {
       window.location.href = url;
     };
-	  let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
+let currentIndex = parseInt(localStorage.getItem('greetingIndex')) || 1;
     
     // Display the greeting and update the index in localStorage
     document.getElementById('greetingText').innerHTML = `<i>${greetingsList[currentIndex - 1]}<br>Nived</i>`;
